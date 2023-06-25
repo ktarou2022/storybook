@@ -11,23 +11,23 @@ export const descriptionStyle = css`
   margin-bottom: 4px;
 `
 
-export const inputWrapperStyle = (error?: boolean, color?: string)  => css`
-  border: ${!error ? "1px solid #aaa" : "2px solid #fa5252"};
+export const inputWrapperStyle = (error?: boolean, color?: string) => css`
+  outline: 2px solid ${!error ? "#FFF" : "#fa5252"};
+  border: 1px solid #aaa;
+  /* border: ${!error ? "1px solid #aaa" : "1px solid #fa5252"}; */
   border-radius: 8px;
   padding: 0px 8px;
   display: flex;
 
   :focus-within {
     outline-color: ${!error ? color : "#fa5252"};
-    border: 2px solid ${color};
-    box-sizing: border-box;
   }
 `
 export const beforeStyle = (error?: boolean) => css`
   display: flex;
   align-items: center;
   padding-right: 8px;
-  color: ${!error ? "#aaa": "#fa5252"};
+  color: ${!error ? "#aaa" : "#fa5252"};
 `
 
 export const inputStyle = (error?: boolean, color?: string) => css`

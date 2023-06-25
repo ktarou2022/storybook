@@ -34,7 +34,7 @@ export const TextInput: FC<Props> = ({
   error,
   errorMessage = "error"
 }) => {
-  const color = "#067bd4"
+  const color = "#029CFD"
   return (
     <>
       <div className={css`
@@ -58,6 +58,7 @@ export const TextInput: FC<Props> = ({
             </div>
           }
           <input
+            id={labelId}
             type={type}
             value={value}
             defaultValue={defaultValue}
