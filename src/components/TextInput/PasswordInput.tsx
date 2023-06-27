@@ -1,17 +1,16 @@
+
 import { css } from '@emotion/css'
-import { ChangeEvent, FC, ReactNode } from 'react'
-import { CircleX } from 'tabler-icons-react'
+import { ChangeEvent, FC, ReactNode, useState } from 'react'
+import { Eye, EyeOff } from 'tabler-icons-react'
 import { beforeStyle, buttonContainerStyle, buttonStyle, descriptionStyle, errorMessageStyle, inputStyle, inputWrapperStyle, labelStyle } from './defaultStyle'
 
 type Props = {
   color?: string
-  type?: "text" | "number" | "submit"
   value?: string
   defaultValue?: string
   placeholder?: string
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
   before?: ReactNode
-  onDelete?: () => void
 
   label?: string
   labelId?: string
@@ -21,14 +20,12 @@ type Props = {
   withAsterisk?: true
 }
 
-export const TextInput: FC<Props> = ({
+export const PasswordInput: FC<Props> = ({
   color = "#029CFD",
-  type = "text",
   value = "",
   defaultValue = "",
   placeholder = "",
   onChange = () => { },
-  onDelete = () => { },
   before,
 
   label = "",
@@ -38,6 +35,10 @@ export const TextInput: FC<Props> = ({
   errorMessage = "error",
   withAsterisk
 }) => {
+  const [toggle, setToggle] = useState(false)
+  const handleToggle = () => {
+    setToggle(!toggle)
+  }
   return (
     <>
       <div className={css`
@@ -54,6 +55,7 @@ export const TextInput: FC<Props> = ({
               ${labelStyle}
               color: #fa5252;
             `}>{withAsterisk ? " *" : ""}</span>
+
           </label>
         }
         {description &&
@@ -68,7 +70,7 @@ export const TextInput: FC<Props> = ({
           }
           <input
             id={labelId}
-            type={type}
+            type={toggle ? "text" : "password"}
             value={value}
             defaultValue={defaultValue}
             placeholder={placeholder}
@@ -77,10 +79,11 @@ export const TextInput: FC<Props> = ({
           />
           <div className={buttonContainerStyle}>
             <button
-              onClick={onDelete}
+              onClick={handleToggle}
               className={buttonStyle(color)}
             >
-              {value && <CircleX color='#aaa' size={16} />}
+              {value && !toggle && <EyeOff color='#aaa' size={16} />}
+              {value && toggle && <Eye color='#aaa' size={16} />}
             </button>
           </div>
         </div>

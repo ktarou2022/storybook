@@ -14,7 +14,6 @@ export const descriptionStyle = css`
 export const inputWrapperStyle = (error?: boolean, color?: string) => css`
   outline: 2px solid ${!error ? "#FFF" : "#fa5252"};
   border: 1px solid #aaa;
-  /* border: ${!error ? "1px solid #aaa" : "1px solid #fa5252"}; */
   border-radius: 8px;
   padding: 0px 8px;
   display: flex;
@@ -49,12 +48,16 @@ export const buttonContainerStyle = css`
   justify-content: center;
   align-items: center;
 `
-export const buttonStyle = css`
+export const buttonStyle = (color?: string) => css`
   width: 16px;
   height: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:focus {
+    outline-color: ${color};
+  }
 `
 export const errorMessageStyle = (error?: boolean) => css`
   visibility: ${error ? "visible" : "hidden"};

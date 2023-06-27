@@ -1,21 +1,21 @@
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { TextInput } from "../../../components/TextInput/Defualt";
+import { PasswordInput } from '../../../components/TextInput/PasswordInput';
 import { ChangeEvent, useState } from 'react';
 
-const meta: Meta<typeof TextInput> = {
-  component: TextInput,
+const meta: Meta<typeof PasswordInput> = {
+  component: PasswordInput,
   tags: ['autodocs'],
 };
 
 export default meta;
-type Story = StoryObj<typeof TextInput>;
+type Story = StoryObj<typeof PasswordInput>;
 
 export const Default: Story = {
   args: {
-    label: "Label",
-    description: "description",
+    label: "Password",
+    description: "Password must include at least one letter, number and special character",
     placeholder: "placeholder",
     before: "@",
     errorMessage: "error",
@@ -26,16 +26,12 @@ export const Default: Story = {
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value)
     }
-    const onDelete = () => {
-      setValue("")
-    }
 
     return (
-      <TextInput
+      <PasswordInput
         {...args}
         value={value}
         onChange={onChange}
-        onDelete={onDelete}
       />
     )
   }
@@ -44,8 +40,8 @@ export const Default: Story = {
 
 export const Error: Story = {
   args: {
-    label: "Label",
-    description: "description",
+    label: "Password",
+    description: "Password must include at least one letter, number and special character",
     placeholder: "placeholder",
     before: "@",
     errorMessage: "error",
@@ -61,11 +57,10 @@ export const Error: Story = {
     }
 
     return (
-      <TextInput
+      <PasswordInput
         {...args}
         value={value}
         onChange={onChange}
-        onDelete={onDelete}
       />
     )
   }
