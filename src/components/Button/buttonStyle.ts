@@ -37,15 +37,17 @@ export const secondary = ({ color }: Props) => css`
   }
 `
 export const thirdly = () => css`
-  background-color: white;
-  border-width: 1px;
+  border-width: 2px;
   border-radius: 9999px;
+
+  background-color: white;
   color: #4c4b4b;
   border-color: #eeeeee;
 
   :disabled {
     pointer-events: none;
     background-color: #aaaaaa;
+    border-color: #aaaaaa;
     color: white;
   }
 `

@@ -1,7 +1,6 @@
-
 import { css } from '@emotion/css'
 import { ChangeEvent, FC, ReactNode, useState } from 'react'
-import { Eye, EyeOff } from 'tabler-icons-react'
+import { Eye, EyeOff, Check, X } from 'tabler-icons-react'
 import { beforeStyle, buttonContainerStyle, buttonStyle, descriptionStyle, errorMessageStyle, inputStyle, inputWrapperStyle, labelStyle } from './defaultStyle'
 
 type Props = {
@@ -39,6 +38,7 @@ export const PasswordInput: FC<Props> = ({
   const handleToggle = () => {
     setToggle(!toggle)
   }
+  
   return (
     <>
       <div className={css`
@@ -90,6 +90,7 @@ export const PasswordInput: FC<Props> = ({
         <p className={errorMessageStyle(error)}>
           {errorMessage}
         </p>
+
       </div>
     </>
   )

@@ -3,6 +3,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Button } from "../../../components/Button/Button";
+import React from 'react';
+import { css } from '@emotion/css';
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -12,48 +14,84 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
+
+export const _default: Story = {
   args: {
     children: "Button",
     size: "md",
-    // onClick: () => alert('button')
-  }
-}
-export const Secondary: Story = {
-  args: {
-    children: "Button",
-    size: "md",
-    mode: "secondary",
-    // onClick: () => alert('button')
-  }
-}
-export const Thirdly: Story = {
-  args: {
-    children: "Button",
-    size: "md",
-    mode: "thirdly",
     // onClick: () => alert('button')
   }
 }
 
-export const Small: Story = {
-  args: {
-    children: "button",
-    size: "sm",
-    // onClick: () => alert('button')
-  }
+export const _Button = () => {
+  return (
+    <div className={style}>
+      <dt >Default</dt>
+      <dd>
+        <div className="row">
+          <Button />
+        </div>
+      </dd>
+
+      <dt>Valiant</dt>
+      <dd>
+        <div className="row">
+          <Button />
+          <Button disabled />
+        </div>
+        <div className="row">
+          <Button mode='secondary' />
+          <Button mode='secondary' disabled />
+        </div>
+        <div className="row">
+          <Button mode='thirdly' />
+          <Button mode='thirdly' disabled />
+        </div>
+      </dd>
+
+      <dt>Small</dt>
+      <dd>
+        <div className="row">
+          <Button size='sm' />
+        </div>
+      </dd>
+
+      <dt>medium</dt>
+      <dd>
+        <div className="row">
+          <Button size='md' />
+        </div>
+      </dd>
+
+      <dt>Large</dt>
+      <dd>
+        <div className="row">
+          <Button size='lg' />
+        </div>
+      </dd>
+
+    </div>
+  )
 }
-export const Medium: Story = {
-  args: {
-    children: "button",
-    size: "md",
-    // onClick: () => alert('button')
-  }
+
+
+const style = css`
+dt {
+  display: block;
+  margin-bottom: 1rem;
+  color:rgb(35, 34, 30);
 }
-export const Large: Story = {
-  args: {
-    children: "button",
-    size: "lg",
-    // onClick: () => alert('button')
-  }
+
+dd {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
 }
+
+.row {
+  display: flex;
+  gap: 1rem;
+}
+`
