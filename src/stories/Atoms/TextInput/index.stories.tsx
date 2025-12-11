@@ -1,5 +1,5 @@
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { TextInput } from "../../../components/TextInput/Defualt";
 import { ChangeEvent, useState } from 'react';

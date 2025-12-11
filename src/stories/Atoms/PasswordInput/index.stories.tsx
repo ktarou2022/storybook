@@ -1,5 +1,5 @@
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { PasswordInput } from '../../../components/TextInput/PasswordInput';
 import { ChangeEvent, useState } from 'react';
